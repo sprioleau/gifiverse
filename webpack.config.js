@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require("autoprefixer");
 const postcssPresets = require("postcss-preset-env");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
+const Dotenv = require("dotenv-webpack");
 
 const env = process.env.NODE_ENV || "development";
 // set to 'production' or 'development' in your env
@@ -65,6 +66,7 @@ module.exports = {
 		],
 	},
 	plugins: [
+		new Dotenv(),
 		new MiniCssExtractPlugin({
 			filename: "[name].css",
 		}),
