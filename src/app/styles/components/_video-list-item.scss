@@ -1,15 +1,19 @@
 .videos {
 	&__list-item {
+		@include transition;
 		list-style: none;
 		display: flex;
 		flex-direction: column;
+		margin-bottom: 1em;
 	}
 
 	&__list-item-image-wrapper {
+		@include clip-path-2;
 		position: relative;
 		overflow: hidden;
 		padding-top: $aspect-ratio;
 		height: 0;
+		margin-bottom: 0.5em;
 	}
 
 	&__list-item-image {
@@ -22,11 +26,16 @@
 		object-fit: cover;
 		object-position: center;
 	}
+
+	&__list-item-title {
+		@include ff;
+		font-size: 1.15em;
+	}
 }
 
 @include hover-wrapper {
 	.videos__list-item:hover {
 		cursor: pointer;
-		box-shadow: 0 0 0 5px $v-pink-200;
+		transform: scale(1.05) translate(-10px, 10px);
 	}
 }

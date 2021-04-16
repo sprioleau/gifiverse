@@ -4,8 +4,9 @@
 	&__search-field {
 		@include shadow;
 		display: block;
-		width: 50%;
-		font-size: 1.25em;
+		width: 100%;
+		font-size: 1.1em;
+		letter-spacing: 0.2px;
 		border-radius: $corner-radius;
 		appearance: none;
 		padding: 0.5em 1em;

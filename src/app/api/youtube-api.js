@@ -8,6 +8,8 @@ const youtubeSearch = (term) => {
 		key: process.env.REACT_APP_API_KEY,
 		q: term,
 		type: "video",
+		maxResults: 10,
+		safeSearch: "moderate",
 	};
 
 	return new Promise((resolve, reject) => {
@@ -15,7 +17,7 @@ const youtubeSearch = (term) => {
 			.get(API_URL, { params })
 			.then((response) => {
 				resolve(response.data.items);
-				console.log("response.data.items:", response.data.items);
+				console.log("response.data:", response.data);
 			})
 			.catch((error) => {
 				console.log(`youtube api error: ${error}`);

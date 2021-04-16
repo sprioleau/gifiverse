@@ -1,0 +1,25 @@
+.videos__video-list {
+	--padding: 2rem;
+	display: block;
+	overflow-y: scroll;
+	height: 100%;
+	flex: 0 0 30%;
+	position: relative;
+	padding-left: var(--padding);
+	padding-right: var(--padding);
+	right: calc(-1 * var(--padding));
+}
+
+@include md {
+	.videos__video-list {
+		--padding: 0;
+		overflow-y: unset;
+		width: 60vw;
+	}
+}
+
+@include sm {
+	.videos__video-list {
+		width: 80vw;
+	}
+}

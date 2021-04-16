@@ -44,10 +44,8 @@ class App extends Component {
 					<Search onSearchChange={this.search} />
 				</div>
 				<section className="videos">
-					<div className="videos__wrapper">
-						<VideoDetail video={this.state.selectedVideo} />
-						<VideoList onVideoSelect={(selectedVideo) => this.setState({ selectedVideo })} videos={this.state.videos} />
-					</div>
+					<VideoDetail video={this.state.selectedVideo} />
+					<VideoList onVideoSelect={(selectedVideo) => this.setState({ selectedVideo })} videos={this.state.videos} />
 				</section>
 			</div>
 		);

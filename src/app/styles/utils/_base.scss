@@ -3,7 +3,10 @@ body {
 	@include ff;
 	color: $white;
 	padding: 3vw;
-	min-height: 100vh;
+	padding-bottom: 0;
+	height: 100vh;
+	overscroll-behavior: none;
+	font-size: 18px;
 }
 
 h1,
@@ -18,11 +21,42 @@ p {
 	max-width: 60ch;
 }
 
-::selection {
-	color: $v-pink-500;
-	background-color: $v-pink-800;
+ul,
+li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
-.video-detail {
-	width: 100%;
+::selection {
+	color: $v-pink-800;
+	background-color: $v-pink-500;
+}
+
+input {
+	@include transition;
+}
+
+input:focus {
+	@include flat-shadow;
+	border: none;
+	outline: none;
+}
+
+@include hover-wrapper {
+	input:hover {
+		box-shadow: 0 0 0 5px rgba(darken($v-pink-500, 50%), 0.7);
+	}
+}
+
+@include md {
+	body {
+		height: unset;
+	}
+}
+
+@include sm {
+	body {
+		font-size: 16px;
+	}
 }

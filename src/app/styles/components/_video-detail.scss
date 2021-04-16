@@ -1,0 +1,50 @@
+.video-detail {
+	flex: 1 0;
+	height: 100%;
+	overflow-y: scroll;
+
+	&__embed-wrapper {
+		margin-bottom: 3vw;
+		@include clip-path;
+	}
+
+	&__title {
+		font-size: 1.5em;
+	}
+
+	&__channel-title {
+		display: inline-block;
+		margin-bottom: 0.75em;
+		margin-left: 0.3em;
+		position: relative;
+		color: $v-pink-600;
+
+		&::before {
+			@include clip-path;
+			@include center;
+			content: "";
+			position: absolute;
+			background-color: $white;
+			top: 50%;
+			left: 50%;
+			width: 130%;
+			height: 110%;
+			z-index: -1;
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	&__description {
+		font-size: 1.1em;
+	}
+}
+
+@include md {
+	.video-detail {
+		@include center;
+		flex-direction: column;
+		width: 100%;
+		overflow-y: unset;
+		margin-bottom: 3vw;
+	}
+}
