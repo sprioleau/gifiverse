@@ -3,7 +3,8 @@ import "./styles/style.scss";
 import debounce from "lodash.debounce";
 import youtubeSearch from "./api/youtube-api";
 
-import SearchBar from "./components/SearchBar";
+import Logo from "./components/Logo";
+import Search from "./components/Search";
 import VideoList from "./components/VideoList";
 import VideoDetail from "./components/VideoDetail";
 
@@ -38,11 +39,16 @@ class App extends Component {
 	render() {
 		return (
 			<div className="app">
-				<SearchBar onSearchChange={this.search} />
-				<div id="video-section">
-					<VideoDetail video={this.state.selectedVideo} />
-					<VideoList onVideoSelect={(selectedVideo) => this.setState({ selectedVideo })} videos={this.state.videos} />
+				<div className="search-wrapper">
+					<Logo />
+					<Search onSearchChange={this.search} />
 				</div>
+				<section className="videos">
+					<div className="videos__wrapper">
+						<VideoDetail video={this.state.selectedVideo} />
+						<VideoList onVideoSelect={(selectedVideo) => this.setState({ selectedVideo })} videos={this.state.videos} />
+					</div>
+				</section>
 			</div>
 		);
 	}

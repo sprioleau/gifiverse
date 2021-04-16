@@ -1,0 +1,14 @@
+.search {
+	flex: 1 1;
+
+	&__search-field {
+		@include shadow;
+		display: block;
+		width: 50%;
+		font-size: 1.25em;
+		border-radius: $corner-radius;
+		appearance: none;
+		padding: 0.5em 1em;
+		border: none;
+	}
+}

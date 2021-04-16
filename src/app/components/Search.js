@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class SearchBar extends Component {
+class Search extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { searchterm: "" };
@@ -13,11 +13,16 @@ class SearchBar extends Component {
 
 	render() {
 		return (
-			<div id="search-bar">
-				<input onChange={this.onInputChange} value={this.state.searchterm} />;
+			<div className="search">
+				<input
+					className="search__search-field"
+					placeholder="Search for a video..."
+					onChange={this.onInputChange}
+					value={this.state.searchterm}
+				/>
 			</div>
 		);
 	}
 }
 
-export default SearchBar;
+export default Search;

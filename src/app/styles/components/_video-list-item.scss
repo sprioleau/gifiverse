@@ -1,0 +1,32 @@
+.videos {
+	&__list-item {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__list-item-image-wrapper {
+		position: relative;
+		overflow: hidden;
+		padding-top: $aspect-ratio;
+		height: 0;
+	}
+
+	&__list-item-image {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+}
+
+@include hover-wrapper {
+	.videos__list-item:hover {
+		cursor: pointer;
+		box-shadow: 0 0 0 5px $v-pink-200;
+	}
+}

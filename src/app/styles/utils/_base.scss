@@ -1,0 +1,28 @@
+body {
+	@include ui-background;
+	@include ff;
+	color: $white;
+	padding: 3vw;
+	min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	@include ff(900);
+}
+
+p {
+	line-height: 1.6;
+	max-width: 60ch;
+}
+
+::selection {
+	color: $v-pink-500;
+	background-color: $v-pink-800;
+}
+
+.video-detail {
+	width: 100%;
+}

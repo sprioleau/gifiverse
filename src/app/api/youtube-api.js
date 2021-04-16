@@ -15,6 +15,7 @@ const youtubeSearch = (term) => {
 			.get(API_URL, { params })
 			.then((response) => {
 				resolve(response.data.items);
+				console.log("response.data.items:", response.data.items);
 			})
 			.catch((error) => {
 				console.log(`youtube api error: ${error}`);
