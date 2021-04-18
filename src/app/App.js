@@ -21,7 +21,7 @@ class App extends Component {
 
 		youtubeSearch("pixar").then((videos) => {
 			this.setState({
-				videos,
+				videos: videos.slice(1), // Remove Featured video from VideoList
 				selectedVideo: videos[0],
 			});
 		});
