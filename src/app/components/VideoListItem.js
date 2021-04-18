@@ -3,6 +3,9 @@ import React from "react";
 const VideoListItem = ({ video, onVideoSelect }) => {
 	const { url: imgUrl } = video.snippet.thumbnails.high;
 
+	// Don't display video if it uses the default image (i.e. it doesn't have an image uploaded)
+	if (imgUrl.includes("default_live.jpg")) return null;
+
 	// prettier-ignore
 	const createTitle = () =>	React.createElement("h3", {
 		dangerouslySetInnerHTML: { __html: video.snippet.title },
