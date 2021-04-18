@@ -36,6 +36,11 @@ class App extends Component {
 		});
 	};
 
+	onVideoSelect = (selectedVideo) => {
+		this.setState({ selectedVideo });
+		window.scroll({ top: 0, left: 0, behavior: "smooth" });
+	};
+
 	render() {
 		return (
 			<div className="app">
@@ -45,7 +50,7 @@ class App extends Component {
 				</div>
 				<section className="videos">
 					<VideoDetail video={this.state.selectedVideo} />
-					<VideoList onVideoSelect={(selectedVideo) => this.setState({ selectedVideo })} videos={this.state.videos} />
+					<VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} />
 				</section>
 			</div>
 		);
