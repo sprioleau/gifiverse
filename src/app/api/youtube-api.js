@@ -1,4 +1,5 @@
 import axios from "axios";
+import staticVideos from "../data/videos";
 
 const API_URL = "https://www.googleapis.com/youtube/v3/search";
 
@@ -11,6 +12,17 @@ const youtubeSearch = (term) => {
 		maxResults: 10,
 		safeSearch: "moderate",
 	};
+
+	if (process.env.NODE_ENV === "development") {
+		return new Promise((resolve) => {
+			console.log(
+				"%cVideos data from static file during development.",
+				// eslint-disable-next-line comma-dangle
+				"background: blue; color: #fff; padding: 5px; font-size: 18px"
+			);
+			resolve(staticVideos);
+		});
+	}
 
 	return new Promise((resolve, reject) => {
 		axios
