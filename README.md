@@ -4,6 +4,8 @@
 
 Deployed URL: [videwhoa.netlify.app](https://videwhoa.netlify.app/)
 
+![Videowhoa Logo](./src/app/images/logo/videwhoa-logo.svg)
+
 ## What Worked Well
 
 - Added scroll to top feature that scrolls back to the featured/detail video once a new one is selected

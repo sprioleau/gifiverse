@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require("autoprefixer");
 const postcssPresets = require("postcss-preset-env");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
+const CopyPlugin = require("copy-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 
 const env = process.env.NODE_ENV || "development";
@@ -14,11 +15,6 @@ const finalCSSLoader = env === "production" ? MiniCssExtractPlugin.loader : { lo
 module.exports = {
 	mode: env,
 	entry: ["./src"], // this is where our app lives
-	output: {
-		filename: "main.js",
-		publicPath: "public",
-		assetModuleFilename: "images/[hash][ext]",
-	},
 	devtool: "source-map", // this enables debugging with source in chrome devtools
 	devServer: { hot: true },
 	module: {
@@ -59,18 +55,6 @@ module.exports = {
 			{
 				test: /\.(jpe?g|png|gif|svg|ico)$/,
 				type: "asset/resource",
-				generator: {
-					filename: "images/[hash][ext]",
-				},
-				// use: [
-				// 	{
-				// 		loader: "file-loader",
-				// 		options: {
-				// 			useRelativePath: true,
-				// 			name: "[name].[ext]",
-				// 		},
-				// 	},
-				// ],
 			},
 		],
 	},
@@ -91,6 +75,9 @@ module.exports = {
 				quality: "95-100",
 			},
 			svgo: {},
+		}),
+		new CopyPlugin({
+			patterns: [{ from: "./src/app/images", to: "images" }],
 		}),
 	],
 };
