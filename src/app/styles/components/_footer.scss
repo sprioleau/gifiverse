@@ -10,12 +10,12 @@
 	transform-origin: bottom right;
 
 	&__link {
-		color: $v-pink-300;
+		color: currentColor;
 		position: relative;
 
 		&:hover {
 			text-decoration: none;
-			color: $v-pink-300;
+			color: currentColor;
 
 			&::after {
 				--scaleY: 1.3;
