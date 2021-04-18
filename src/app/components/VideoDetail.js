@@ -1,5 +1,4 @@
 import React from "react";
-import createTitle from "../utils/createTitle";
 
 const VideoDetail = ({ video }) => {
 	if (!video) return <div>Loading...</div>;
@@ -7,11 +6,11 @@ const VideoDetail = ({ video }) => {
 	const { videoId } = video.id;
 	const url = `https://www.youtube.com/embed/${videoId}`;
 
-	const titleObject = {
-		tag: "h3",
-		title: video.snippet.title,
+	// prettier-ignore
+	const createTitle = () => React.createElement("h3", {
+		dangerouslySetInnerHTML: { __html: video.snippet.title },
 		className: "video-detail__title",
-	};
+	});
 
 	return (
 		<div className="video-detail">
@@ -20,7 +19,7 @@ const VideoDetail = ({ video }) => {
 			</div>
 			<div className="video-detail__details">
 				<span className="video-detail__channel-title">{video.snippet.channelTitle}</span>
-				{createTitle(titleObject)}
+				{createTitle()}
 				<p className="video-detail__description">{video.snippet.description}</p>
 			</div>
 		</div>
