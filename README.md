@@ -32,14 +32,17 @@ Deployed URL: [videwhoa.netlify.app](https://videwhoa.netlify.app/)
 
 ## Screenshots
 
-Parsed HTML Entities
+Parsed HTML Entities  
 ![Parsed HTML Entities](https://videwhoa.netlify.app/images/screenshots/parsed-html-entities.png)
 
-Custom Logo
-![Custom Logo](https://videwhoa.netlify.app/images/screenshots/videwhoa-logo-white.svg)
+Custom Logo  
+![Custom Logo](https://videwhoa.netlify.app/images/logo/videwhoa-logo-white.svg)
 
-Favicon
+Favicon  
 ![Custom Favicon](https://videwhoa.netlify.app/favicon.png)
 
-Social Card (for URL unfurls)
+Social Card (for URL unfurls)  
 ![Custom Favicon](https://videwhoa.netlify.app/images/social-card/videwhoa-social-card.png)
+
+Social Card Preview  
+![Social Card Preview](https://videwhoa.netlify.app/images/social-card/social-card-preview.png)
