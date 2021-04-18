@@ -17,6 +17,7 @@ Deployed URL: [videwhoa.netlify.app](https://videwhoa.netlify.app/)
 - Displayed channel name alongside featured/detail video
 - Used [SVG background generator](https://www.svgbackgrounds.com/#liquid-cheese) to add color scheme to selected background graphic
 - Added transitions/animations to additional videos and text links
+- Implemented logic for loading "dummy" data from local directory when in development
 
 ## What Didn't
 
@@ -27,3 +28,15 @@ Deployed URL: [videwhoa.netlify.app](https://videwhoa.netlify.app/)
 - No additional APIs used (only modified the data returned by the YouTube API)
 
 ## Screenshots
+
+Parsed HTML Entities
+![Parsed HTML Entities](https://videwhoa.netlify.app/images/screenshots/parsed-html-entities.png)
+
+Custom Logo
+![Custom Logo](https://videwhoa.netlify.app/images/screenshots/videwhoa-logo-white.svg)
+
+Favicon
+![Custom Favicon](https://videwhoa.netlify.app/favicon.png)
+
+Social Card (for URL unfurls)
+![Custom Favicon](https://videwhoa.netlify.app/images/social-card/videwhoa-social-card.png)
