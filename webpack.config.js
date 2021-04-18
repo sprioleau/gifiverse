@@ -14,6 +14,11 @@ const finalCSSLoader = env === "production" ? MiniCssExtractPlugin.loader : { lo
 module.exports = {
 	mode: env,
 	entry: ["./src"], // this is where our app lives
+	output: {
+		filename: "main.js",
+		publicPath: "public",
+		assetModuleFilename: "images/[hash][ext]",
+	},
 	devtool: "source-map", // this enables debugging with source in chrome devtools
 	devServer: { hot: true },
 	module: {
@@ -53,16 +58,19 @@ module.exports = {
 			},
 			{
 				test: /\.(jpe?g|png|gif|svg|ico)$/,
-				use: [
-					{
-						loader: "file-loader",
-						options: {
-							// useRelativePath: true,
-							name: "[name].[ext]",
-							publicPath: "images",
-						},
-					},
-				],
+				type: "asset/resource",
+				generator: {
+					filename: "images/[hash][ext]",
+				},
+				// use: [
+				// 	{
+				// 		loader: "file-loader",
+				// 		options: {
+				// 			useRelativePath: true,
+				// 			name: "[name].[ext]",
+				// 		},
+				// 	},
+				// ],
 			},
 		],
 	},
