@@ -44,14 +44,25 @@ class App extends Component {
 	render() {
 		return (
 			<div className="app">
-				<div className="search-wrapper">
+				<header className="search-wrapper">
 					<Logo />
 					<Search onSearchChange={this.search} />
-				</div>
+				</header>
 				<section className="videos">
 					<VideoDetail video={this.state.selectedVideo} />
 					<VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} />
 				</section>
+				<footer className="footer">
+					Created by{" "}
+					<a href="https://github.com/sprioleau" className="footer__link">
+						San&apos;Quan Prioleau
+					</a>{" "}
+					for{" "}
+					<a href="https://cs52.me/assignments/sa/react-videos/" className="footer__link">
+						CS52
+					</a>
+					.
+				</footer>
 			</div>
 		);
 	}

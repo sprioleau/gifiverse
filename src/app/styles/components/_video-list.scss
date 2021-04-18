@@ -8,6 +8,7 @@
 	padding-left: var(--padding);
 	padding-right: var(--padding);
 	right: calc(-1 * var(--padding));
+	margin-bottom: 1rem;
 }
 
 @include md {

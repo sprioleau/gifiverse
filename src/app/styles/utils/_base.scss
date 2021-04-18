@@ -2,7 +2,7 @@ body {
 	@include ui-background;
 	@include ff;
 	color: $white;
-	padding: 3vw;
+	padding: $body-padding;
 	padding-bottom: 0;
 	height: 100vh;
 	overscroll-behavior: none;

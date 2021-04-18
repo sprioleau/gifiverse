@@ -16,6 +16,10 @@
 	align-items: center;
 	margin-bottom: 3vw;
 	flex: 0 0;
+
+	@include sm {
+		flex-direction: column;
+	}
 }
 
 .videos {

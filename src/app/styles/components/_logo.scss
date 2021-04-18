@@ -4,8 +4,11 @@
 	margin-right: 2rem;
 }
 
-@include md {
+@include sm {
 	.logo {
-		flex-basis: 120px;
+		flex-basis: 80%;
+		max-width: 35vw;
+		margin-right: 0;
+		margin-bottom: 1rem;
 	}
 }

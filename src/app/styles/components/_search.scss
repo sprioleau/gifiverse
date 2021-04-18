@@ -11,5 +11,10 @@
 		appearance: none;
 		padding: 0.5em 1em;
 		border: none;
+
+		@include sm {
+			font-size: 1em;
+			width: calc(100vw - 2 * #{$body-padding});
+		}
 	}
 }
