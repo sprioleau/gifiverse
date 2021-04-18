@@ -57,8 +57,9 @@ module.exports = {
 					{
 						loader: "file-loader",
 						options: {
-							useRelativePath: true,
+							// useRelativePath: true,
 							name: "[name].[ext]",
+							publicPath: "images",
 						},
 					},
 				],
