@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/style.scss";
 import debounce from "lodash.debounce";
 import youtubeSearch from "./api/youtube-api";
@@ -8,64 +8,54 @@ import Search from "./components/Search";
 import VideoList from "./components/VideoList";
 import VideoDetail from "./components/VideoDetail";
 
-class App extends Component {
-	constructor(props) {
-		super(props);
+const App = () => {
+	const [videos, setVideos] = useState([]);
+	const [selectedVideo, setSelectedVideo] = useState(null);
 
-		this.state = {
-			videos: [],
-			selectedVideo: null,
-		};
-
-		this.search = debounce(this.search, 300);
-
-		youtubeSearch("pixar").then((videos) => {
-			this.setState({
-				videos: videos.slice(1), // Remove Featured video from VideoList
-				selectedVideo: videos[0],
-			});
-		});
-	}
-
-	search = (text) => {
-		youtubeSearch(text).then((videos) => {
-			this.setState({
-				videos,
-				selectedVideo: videos[0],
-			});
+	const search = (text) => {
+		youtubeSearch(text).then((videosFromApi) => {
+			setVideos(videosFromApi.slice(1));
+			setSelectedVideo(videosFromApi[0]);
 		});
 	};
 
-	onVideoSelect = (selectedVideo) => {
-		this.setState({ selectedVideo });
+	const debouncedSearch = debounce(search, 300);
+
+	const onVideoSelect = (userSelectedVideo) => {
+		setSelectedVideo(userSelectedVideo);
 		window.scroll({ top: 0, left: 0, behavior: "smooth" });
 	};
 
-	render() {
-		return (
-			<div className="app">
-				<header className="search-wrapper">
-					<Logo />
-					<Search onSearchChange={this.search} />
-				</header>
-				<section className="videos">
-					<VideoDetail video={this.state.selectedVideo} />
-					<VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} />
-				</section>
-				<footer className="footer">
-					Created by{" "}
-					<a href="https://github.com/sprioleau" className="footer__link">
-						San&apos;Quan Prioleau
-					</a>{" "}
-					for{" "}
-					<a href="https://cs52.me/assignments/sa/react-videos/" className="footer__link">
-						CS52
-					</a>
-					.
-				</footer>
-			</div>
-		);
-	}
-}
+	useEffect(() => {
+		youtubeSearch("pixar").then((videosFromApi) => {
+			setVideos(videosFromApi.slice(1));
+			setSelectedVideo(videosFromApi[0]);
+		});
+	}, []);
+
+	return (
+		<div className="app">
+			<header className="search-wrapper">
+				<Logo />
+				<Search onSearchChange={debouncedSearch} />
+			</header>
+			<section className="videos">
+				<VideoDetail video={selectedVideo} />
+				<VideoList onVideoSelect={onVideoSelect} videos={videos} />
+			</section>
+			<footer className="footer">
+				Created by{" "}
+				<a href="https://github.com/sprioleau" className="footer__link">
+					San&apos;Quan Prioleau
+				</a>{" "}
+				for{" "}
+				<a href="https://cs52.me/assignments/sa/react-videos/" className="footer__link">
+					CS52
+				</a>
+				.
+			</footer>
+		</div>
+	);
+};
 
 export default App;
