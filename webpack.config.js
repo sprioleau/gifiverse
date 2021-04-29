@@ -62,7 +62,11 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new Dotenv(),
+		// Allow webpack to pickup all environment variables when deployed to Netlify
+		// https://answers.netlify.com/t/cant-access-environment-variables/20314/12
+		new Dotenv({
+			systemvars: true,
+		}),
 		new MiniCssExtractPlugin({
 			filename: "[name].css",
 		}),
