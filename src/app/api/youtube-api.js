@@ -6,7 +6,7 @@ const API_URL = "https://www.googleapis.com/youtube/v3/search";
 const youtubeSearch = (term) => {
 	const params = {
 		part: "snippet",
-		key: process.env.REACT_APP_API_KEY,
+		key: process.env.REACT_APP_YOUTUBE_API_KEY,
 		q: term,
 		type: "video",
 		maxResults: 10,
