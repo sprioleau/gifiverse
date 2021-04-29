@@ -30,6 +30,11 @@ Deployed URL: [videwhoa.netlify.app](https://videwhoa.netlify.app/)
 
 - No additional APIs used (only modified the data returned by the YouTube API)
 
+## Extra Credit with Redux Implementation
+
+- Refactored code to use functional components
+- Added redux-thunk for handling API call (thunk viewable in redux actions)
+
 ## Screenshots
 
 Parsed HTML Entities  
