@@ -10,7 +10,7 @@ const Search = () => {
 
 	const onSearchTermChange = (e) => {
 		dispatch(updateSearchTerm(e.target.value));
-		dispatch(debounce(loadVideos(e.target.value), 1000));
+		dispatch(debounce(loadVideos(e.target.value), 300));
 	};
 
 	return (
