@@ -4,7 +4,6 @@ import staticVideos from "../data/videos";
 const API_URL = "https://www.googleapis.com/youtube/v3/search";
 
 const youtubeSearch = (term) => {
-	// console.log("term:", term);
 	const params = {
 		part: "snippet",
 		key: process.env.REACT_APP_API_KEY,
