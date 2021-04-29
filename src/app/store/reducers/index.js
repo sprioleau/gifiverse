@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import CountReducer from "./count-reducer";
+import VideosReducer from "./videos.reducer";
 
 const rootReducer = combineReducers({
-	count: CountReducer,
+	videos: VideosReducer,
 });
 
 export default rootReducer;

@@ -1,28 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import debounce from "lodash.debounce";
+import { loadVideos, updateSearchTerm } from "../store/actions";
+import { selectSearchTerm } from "../store/selectors";
 
-class Search extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { searchterm: "" };
-	}
+const Search = () => {
+	const dispatch = useDispatch();
+	const searchTerm = useSelector(selectSearchTerm);
 
-	onInputChange = (e) => {
-		this.props.onSearchChange(e.target.value);
-		this.setState({ searchterm: e.target.value });
+	const onSearchTermChange = (e) => {
+		dispatch(updateSearchTerm(e.target.value));
+		dispatch(debounce(loadVideos(e.target.value), 1000));
 	};
 
-	render() {
-		return (
-			<div className="search">
-				<input
-					className="search__search-field"
-					placeholder="Search for a video..."
-					onChange={this.onInputChange}
-					value={this.state.searchterm}
-				/>
-			</div>
-		);
-	}
-}
-
+	return (
+		<div className="search">
+			<input
+				className="search__search-field"
+				placeholder="Search for a video..."
+				onChange={onSearchTermChange}
+				value={searchTerm}
+			/>
+		</div>
+	);
+};
 export default Search;

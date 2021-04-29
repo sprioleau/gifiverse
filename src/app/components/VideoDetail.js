@@ -1,14 +1,18 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { selectSelectedVideo } from "../store/selectors";
 
-const VideoDetail = ({ video }) => {
-	if (!video) return <div>Loading...</div>;
+const VideoDetail = () => {
+	const selectedVideo = useSelector(selectSelectedVideo);
 
-	const { videoId } = video.id;
+	if (Object.keys(selectedVideo).length === 0) return null;
+
+	const { videoId } = selectedVideo?.id;
 	const url = `https://www.youtube.com/embed/${videoId}`;
 
 	// prettier-ignore
 	const createTitle = () => React.createElement("h3", {
-		dangerouslySetInnerHTML: { __html: video.snippet.title },
+		dangerouslySetInnerHTML: { __html: selectedVideo.snippet.title },
 		className: "video-detail__title",
 	});
 
@@ -18,9 +22,9 @@ const VideoDetail = ({ video }) => {
 				<iframe className="video-detail__embed embed-responsive-item" src={url} title="video-detail" />
 			</div>
 			<div className="video-detail__details">
-				<span className="video-detail__channel-title">{video.snippet.channelTitle}</span>
+				<span className="video-detail__channel-title">{selectedVideo.snippet.channelTitle}</span>
 				{createTitle()}
-				<p className="video-detail__description">{video.snippet.description}</p>
+				<p className="video-detail__description">{selectedVideo.snippet.description}</p>
 			</div>
 		</div>
 	);
