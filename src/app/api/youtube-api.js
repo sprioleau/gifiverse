@@ -17,8 +17,7 @@ const youtubeSearch = (term) => {
 		return new Promise((resolve) => {
 			console.log(
 				"%cVideos data from static file during development.",
-				// eslint-disable-next-line comma-dangle
-				"background: blue; color: #fff; padding: 5px; font-size: 18px"
+				"background: blue; color: #fff; padding: 5px; font-size: 18px",
 			);
 			resolve(staticVideos);
 		});
