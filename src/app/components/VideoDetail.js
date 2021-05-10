@@ -10,6 +10,10 @@ const VideoDetail = () => {
 	const { videoId } = selectedVideo?.id;
 	const url = `https://www.youtube.com/embed/${videoId}`;
 
+	// Since the API returns HTML entities within the title string, I am not setting
+	// the title with the equivalent of element.innerHTML so that the HTML entities get
+	// properly parsed.
+	// Example: "&amp;" becomes "&"
 	// prettier-ignore
 	const createTitle = () => React.createElement("h3", {
 		dangerouslySetInnerHTML: { __html: selectedVideo.snippet.title },
