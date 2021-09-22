@@ -16,7 +16,7 @@ const VideoList = () => {
 	};
 
 	return (
-		<ul className="videos__video-list">
+		<ul className="videos__video-list" data-c-video-list>
 			{videos.map((video) => (
 				<VideoListItem onVideoSelect={onVideoSelect} key={video.etag} video={video} />
 			))}

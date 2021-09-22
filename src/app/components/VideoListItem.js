@@ -13,7 +13,10 @@ const VideoListItem = ({ video, onVideoSelect }) => {
 	});
 
 	return (
-		<li className="videos__list-item" onClick={() => onVideoSelect(video)}>
+		<li className="videos__list-item"
+			data-c-video-list-item
+			onClick={() => onVideoSelect(video)}
+		>
 			<div className="videos__list-item-image-wrapper">
 				<img className="videos__list-item-image" src={imgUrl} alt="video" width="100%" height="auto" />
 			</div>

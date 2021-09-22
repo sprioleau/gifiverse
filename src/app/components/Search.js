@@ -18,6 +18,7 @@ const Search = () => {
 			<input
 				className="search__search-field"
 				placeholder="Search for a video..."
+				data-c-search-input
 				onChange={onSearchTermChange}
 				value={searchTerm}
 			/>
