@@ -6,15 +6,16 @@ import { useDispatch } from "react-redux";
 import Footer from "./components/Footer";
 import Logo from "./components/Logo";
 import Search from "./components/Search";
-import VideoDetail from "./components/VideoDetail";
-import VideoList from "./components/VideoList";
-import { loadVideos } from "./store/actions";
+import GifDetail from "./components/GifDetail";
+import GifList from "./components/GifList";
+import { searchGiphy } from "./store/actions";
+import { API_ENDPOINTS } from "./constants";
 
 const App = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(loadVideos("pixar"));
+		dispatch(searchGiphy("saturn", API_ENDPOINTS.GIFS));
 	}, []);
 
 	return (
@@ -23,9 +24,9 @@ const App = () => {
 				<Logo />
 				<Search />
 			</header>
-			<section className="videos">
-				<VideoDetail />
-				<VideoList />
+			<section className="gifs">
+				<GifDetail />
+				<GifList />
 			</section>
 			<Footer />
 		</div>
