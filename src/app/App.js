@@ -15,7 +15,7 @@ const App = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(searchGiphy("saturn", API_ENDPOINTS.GIFS));
+		dispatch(searchGiphy("fun", API_ENDPOINTS.GIFS));
 	}, []);
 
 	return (
