@@ -1,4 +1,4 @@
-.videos {
+.gifs {
 	&__list-item {
 		@include transition;
 		list-style: none;
@@ -34,7 +34,7 @@
 }
 
 @include hover-wrapper {
-	.videos__list-item:hover {
+	.gifs__list-item:hover {
 		cursor: pointer;
 		transform: scale(1.05) translate(-10px, 10px);
 	}

@@ -1,7 +1,5 @@
 // Utils
 @import "utils/variables";
-@import "utils/light-mode";
-@import "utils/dark-mode";
 @import "utils/mixins";
 @import "utils/base";
 
@@ -9,7 +7,7 @@
 @import "components/app";
 @import "components/logo";
 @import "components/search";
-@import "components/video-detail";
-@import "components/video-list";
-@import "components/video-list-item";
+@import "components/gif-detail";
+@import "components/gif-list";
+@import "components/gif-list-item";
 @import "components/footer";

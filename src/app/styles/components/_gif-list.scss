@@ -1,7 +1,7 @@
-.videos__video-list {
+.gifs__gif-list {
 	--padding: 2rem;
 	display: block;
-	overflow-y: scroll;
+	// overflow-y: scroll;
 	height: 100%;
 	flex: 0 0 30%;
 	position: relative;
@@ -12,7 +12,7 @@
 }
 
 @include md {
-	.videos__video-list {
+	.gifs__gif-list {
 		--padding: 0;
 		overflow-y: unset;
 		width: 60vw;
@@ -20,7 +20,7 @@
 }
 
 @include sm {
-	.videos__video-list {
+	.gifs__gif-list {
 		width: 80vw;
 	}
 }

@@ -3,6 +3,7 @@
 	flex-direction: column;
 	max-width: 1400px;
 	margin: 0 auto;
+	padding: 0 2rem 3rem;
 	height: 100%;
 	position: relative;
 }
@@ -17,16 +18,20 @@
 	margin-bottom: 3vw;
 	flex: 0 0;
 
+	& > :not(:last-child){
+		margin-right: 1.5rem;
+	}
+
 	@include sm {
 		flex-direction: column;
 	}
 }
 
-.videos {
+.gifs {
 	display: flex;
 	align-items: flex-start;
 	flex: 1 0;
-	overflow: hidden;
+	// overflow: hidden;
 
 	@include md {
 		flex-direction: column;

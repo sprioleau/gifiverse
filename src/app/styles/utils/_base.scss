@@ -2,8 +2,8 @@ body {
 	@include ui-background;
 	@include ff;
 	color: $white;
-	padding: $body-padding;
-	padding-bottom: 0;
+	padding: 0;
+	margin: 0;
 	height: 100vh;
 	overscroll-behavior: none;
 	font-size: 18px;
@@ -29,8 +29,8 @@ li {
 }
 
 ::selection {
-	color: $v-pink-800;
-	background-color: $v-pink-500;
+	color: $g-purple-800;
+	background-color: $g-purple-500;
 }
 
 input {
@@ -45,7 +45,7 @@ input:focus {
 
 @include hover-wrapper {
 	input:hover {
-		box-shadow: 0 0 0 5px rgba(darken($v-pink-500, 50%), 0.7);
+		box-shadow: 0 0 0 5px rgba(darken($g-purple-500, 50%), 0.7);
 	}
 }
 
