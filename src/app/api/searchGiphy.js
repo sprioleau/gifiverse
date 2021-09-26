@@ -11,7 +11,11 @@ const apiDefaultParameters = {
 };
 
 const searchGiphyApi = async (searchTerm, endpoint) => {
-  const parameters = { ...apiDefaultParameters, q: searchTerm };
+  const cleanedSearchTerm = searchTerm.length > 0
+    ? searchTerm.trim().split(" ").join("+")
+    : "baby+yoda";
+
+  const parameters = { ...apiDefaultParameters, q: cleanedSearchTerm };
   const url = constructUrlQuery(API_BASE_URL, endpoint, parameters);
 
   const inDevelopment = process.env.NODE_ENV === "development";
