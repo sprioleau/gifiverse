@@ -1,14 +1,16 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GifListItem from "./GifListItem";
-import { selectGifs } from "../store/selectors";
+import { selectGifs, selectIsFetchingData } from "../store/selectors";
 import { setSelectedGif } from "../store/actions";
 
 const GifList = () => {
 	const dispatch = useDispatch();
 	const gifs = useSelector(selectGifs);
+	const isFetchingData = useSelector(selectIsFetchingData);
 
-	if (gifs?.length === 0) return <h2>Loading...</h2>;
+	if (gifs?.length === 0 && isFetchingData) return <h2>Loading...</h2>;
+	if (gifs?.length === 0) return <h2>Sorry, no goodies for your search term.</h2>;
 
 	const onGifSelect = (userSelectedGif) => {
 		dispatch(setSelectedGif(userSelectedGif));

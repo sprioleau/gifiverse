@@ -16,9 +16,16 @@ export const setSelectedGif = (gif) => ({
 	gif,
 });
 
+export const setIsFetchingData = (isFetchingData) => ({
+	type: types.SET_IS_FETCHING_DATA,
+	isFetchingData,
+});
+
 export const searchGiphy = (searchTerm, endpoint) => {
 	return async (dispatch) => {
-		const gifs = await searchGiphyApi(searchTerm, endpoint);
+		dispatch(setIsFetchingData(true));
+		const { data: gifs } = await searchGiphyApi(searchTerm, endpoint);
 		dispatch(setGifs(gifs));
+		dispatch(setIsFetchingData(false));
 	};
 };

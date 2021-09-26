@@ -5,7 +5,7 @@ import { selectSelectedGif } from "../store/selectors";
 const GifDetail = () => {
 	const selectedGif = useSelector(selectSelectedGif);
 
-	if (Object.keys(selectedGif).length === 0) return null;
+	if (!selectedGif || Object.keys(selectedGif).length === 0) return null;
 
 	return (
 		<div className="gif-detail">
@@ -15,9 +15,11 @@ const GifDetail = () => {
 			<div className="gif-detail__details">
 				<h3 className="gif-detail__title">{selectedGif.title}</h3>
 				<div className="gif-detail__user-details">
-					<span className="gif-detail__username">{selectedGif.user.display_name}</span>
-					<img className="gif-detail__user-image" src={selectedGif.user.avatar_url} alt="credit" />
-					<p className="gif-detail__user-description">{selectedGif.user.description}</p>
+					<span className="gif-detail__username">{selectedGif.user?.display_name}</span>
+					{selectedGif.user?.avatar_url && (
+						<img className="gif-detail__user-image" src={selectedGif.user?.avatar_url} alt="credit" />
+					)}
+					<p className="gif-detail__user-description">{selectedGif.user?.description}</p>
 				</div>
 			</div>
 		</div>
