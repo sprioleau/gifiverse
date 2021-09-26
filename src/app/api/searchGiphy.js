@@ -1,5 +1,4 @@
 import axios from "axios";
-import staticGifsData from "../data/gifs";
 import constructUrlQuery from "../utils/constructUrlQuery";
 import { API_BASE_URL } from "../constants/index";
 
@@ -20,10 +19,11 @@ const searchGiphyApi = async (searchTerm, endpoint) => {
 
   const inDevelopment = process.env.NODE_ENV === "development";
 
-  const data = inDevelopment ? staticGifsData : await axios.get(url);
+  const data = inDevelopment
+    ? await axios.get("/data/gifs.json") // Helps not to exceed API request limit
+    : await axios.get(url);
 
   const { data: gifs } = data;
-  console.log("gifs:", gifs);
 
   return gifs;
 };

@@ -84,7 +84,10 @@ module.exports = {
 			svgo: {},
 		}),
 		new CopyPlugin({
-			patterns: [{ from: "./src/app/images", to: "images" }],
+			patterns: [
+				{ from: "./src/app/images", to: "images" },
+				{ from: "./src/app/data", to: "data" },
+			],
 		}),
 	],
 };
