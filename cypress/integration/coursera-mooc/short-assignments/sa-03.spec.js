@@ -2,7 +2,7 @@
 /// <reference types="cypress" />
 
 const override = false;
-const rootUrl = process.env.NODE_ENV === "development" && !override ? "http://localhost:8080" : "https://videwhoa.netlify.app";
+const rootUrl = process.env.NODE_ENV === "development" && !override ? "http://localhost:8080" : "https://gifiverse.netlify.app";
 
 describe("Coursera MOOC Tests", () => {
   beforeEach(() => {
