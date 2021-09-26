@@ -1,4 +1,4 @@
-import youtubeSearch from "../../api/youtube-api";
+import searchGiphyApi from "../../api/searchGiphy";
 import types from "../types";
 
 export const updateSearchTerm = (searchTerm) => ({
@@ -6,19 +6,19 @@ export const updateSearchTerm = (searchTerm) => ({
 	searchTerm,
 });
 
-export const setVideos = (videos) => ({
-	type: types.SET_VIDEOS,
-	videos,
+export const setGifs = (gifs) => ({
+	type: types.SET_GIFS,
+	gifs,
 });
 
-export const setSelectedVideo = (video) => ({
-	type: types.SET_SELECTED_VIDEO,
-	video,
+export const setSelectedGif = (gif) => ({
+	type: types.SET_SELECTED_GIF,
+	gif,
 });
 
-export const loadVideos = (searchTerm) => {
+export const searchGiphy = (searchTerm, endpoint) => {
 	return async (dispatch) => {
-		const videosFromApi = await youtubeSearch(searchTerm);
-		dispatch(setVideos(videosFromApi));
+		const gifs = await searchGiphyApi(searchTerm, endpoint);
+		dispatch(setGifs(gifs));
 	};
 };

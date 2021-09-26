@@ -1,3 +1,3 @@
-export const selectSearchTerm = (state) => state.videos.searchTerm;
-export const selectVideos = (state) => state.videos.videos;
-export const selectSelectedVideo = (state) => state.videos.selectedVideo;
+export const selectSearchTerm = (state) => state.gifs.searchTerm;
+export const selectGifs = (state) => state.gifs.gifs;
+export const selectSelectedGif = (state) => state.gifs.selectedGif;
