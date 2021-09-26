@@ -1,6 +1,10 @@
 .logo {
 	@include center;
 	flex: 0 0 150px;
+
+	&.wordmark {
+		flex-basis: 300px;
+	}
 }
 
 @include sm {
